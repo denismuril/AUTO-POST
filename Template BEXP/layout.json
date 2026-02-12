@@ -1,0 +1,346 @@
+{
+    "formats": {
+        "1080x1350": {
+            "template_file": "1080x1350.png",
+            "width": 1080,
+            "height": 1350,
+            "slots": [
+                {
+                    "x": 28,
+                    "y": 28,
+                    "w": 1024,
+                    "h": 345,
+                    "radius": 40
+                },
+                {
+                    "x": 28,
+                    "y": 390,
+                    "w": 506,
+                    "h": 335,
+                    "radius": 40
+                },
+                {
+                    "x": 548,
+                    "y": 390,
+                    "w": 506,
+                    "h": 335,
+                    "radius": 40
+                }
+            ],
+            "text_clear_area_left": [
+                0,
+                845,
+                480,
+                1010
+            ],
+            "text_clear_area_right": [
+                500,
+                845,
+                1080,
+                1010
+            ],
+            "text_pos": {
+                "modelo": [
+                    42,
+                    855
+                ],
+                "preco": [
+                    42,
+                    905
+                ],
+                "ano": [
+                    42,
+                    940
+                ],
+                "km": [
+                    42,
+                    975
+                ],
+                "placa": [
+                    42,
+                    1010
+                ],
+                "vendedor": [
+                    1038,
+                    870
+                ],
+                "telefone": [
+                    1038,
+                    905
+                ],
+                "unidade": [
+                    1038,
+                    940
+                ],
+                "endereco": [
+                    1038,
+                    975
+                ]
+            },
+            "text_align_right": [
+                "vendedor",
+                "telefone",
+                "unidade",
+                "endereco"
+            ]
+        },
+        "1080x1080": {
+            "template_file": "1080x1080.png",
+            "width": 1080,
+            "height": 1080,
+            "slots": [
+                {
+                    "x": 28,
+                    "y": 28,
+                    "w": 1024,
+                    "h": 280,
+                    "radius": 40
+                },
+                {
+                    "x": 28,
+                    "y": 320,
+                    "w": 506,
+                    "h": 280,
+                    "radius": 40
+                },
+                {
+                    "x": 548,
+                    "y": 320,
+                    "w": 506,
+                    "h": 280,
+                    "radius": 40
+                }
+            ],
+            "text_clear_area_left": [
+                0,
+                620,
+                480,
+                780
+            ],
+            "text_clear_area_right": [
+                500,
+                620,
+                1080,
+                780
+            ],
+            "text_pos": {
+                "modelo": [
+                    42,
+                    630
+                ],
+                "preco": [
+                    42,
+                    675
+                ],
+                "ano": [
+                    42,
+                    710
+                ],
+                "km": [
+                    42,
+                    745
+                ],
+                "placa": [
+                    42,
+                    780
+                ],
+                "vendedor": [
+                    1038,
+                    645
+                ],
+                "telefone": [
+                    1038,
+                    680
+                ],
+                "unidade": [
+                    1038,
+                    715
+                ],
+                "endereco": [
+                    1038,
+                    750
+                ]
+            },
+            "text_align_right": [
+                "vendedor",
+                "telefone",
+                "unidade",
+                "endereco"
+            ]
+        },
+        "1080x1920": {
+            "template_file": "1080x1920.png",
+            "width": 1080,
+            "height": 1920,
+            "slots": [
+                {
+                    "x": 28,
+                    "y": 140,
+                    "w": 1024,
+                    "h": 500,
+                    "radius": 40
+                },
+                {
+                    "x": 28,
+                    "y": 660,
+                    "w": 506,
+                    "h": 400,
+                    "radius": 40
+                },
+                {
+                    "x": 548,
+                    "y": 660,
+                    "w": 506,
+                    "h": 400,
+                    "radius": 40
+                }
+            ],
+            "text_clear_area_left": [
+                0,
+                1100,
+                480,
+                1280
+            ],
+            "text_clear_area_right": [
+                500,
+                1100,
+                1080,
+                1280
+            ],
+            "text_pos": {
+                "modelo": [
+                    28,
+                    1110
+                ],
+                "preco": [
+                    28,
+                    1160
+                ],
+                "ano": [
+                    28,
+                    1200
+                ],
+                "km": [
+                    28,
+                    1240
+                ],
+                "placa": [
+                    28,
+                    1280
+                ],
+                "vendedor": [
+                    1050,
+                    1130
+                ],
+                "telefone": [
+                    1050,
+                    1170
+                ],
+                "unidade": [
+                    1050,
+                    1210
+                ],
+                "endereco": [
+                    1050,
+                    1250
+                ]
+            },
+            "text_align_right": [
+                "vendedor",
+                "telefone",
+                "unidade",
+                "endereco"
+            ]
+        },
+        "1080x566": {
+            "template_file": "1080x566.png",
+            "width": 1080,
+            "height": 566,
+            "slots": [
+                {
+                    "x": 28,
+                    "y": 28,
+                    "w": 410,
+                    "h": 200,
+                    "radius": 30
+                },
+                {
+                    "x": 28,
+                    "y": 240,
+                    "w": 200,
+                    "h": 180,
+                    "radius": 30
+                },
+                {
+                    "x": 240,
+                    "y": 240,
+                    "w": 200,
+                    "h": 180,
+                    "radius": 30
+                }
+            ],
+            "text_clear_area_left": [
+                460,
+                30,
+                750,
+                280
+            ],
+            "text_clear_area_right": [
+                750,
+                30,
+                1080,
+                280
+            ],
+            "text_pos": {
+                "modelo": [
+                    480,
+                    40
+                ],
+                "preco": [
+                    480,
+                    90
+                ],
+                "ano": [
+                    480,
+                    130
+                ],
+                "km": [
+                    480,
+                    170
+                ],
+                "placa": [
+                    480,
+                    210
+                ],
+                "vendedor": [
+                    1050,
+                    60
+                ],
+                "telefone": [
+                    1050,
+                    100
+                ],
+                "unidade": [
+                    1050,
+                    140
+                ],
+                "endereco": [
+                    1050,
+                    180
+                ]
+            },
+            "text_align_right": [
+                "vendedor",
+                "telefone",
+                "unidade",
+                "endereco"
+            ]
+        }
+    },
+    "font_size": {
+        "modelo": 48,
+        "preco": 30,
+        "default": 24
+    },
+    "font_color": "#FFFFFF"
+}
