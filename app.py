@@ -7,6 +7,7 @@ import os
 import sys
 import json
 import io
+from copy import deepcopy
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageOps, ImageFont
 
@@ -61,10 +62,41 @@ def load_layout_config(template_path: Path) -> dict | None:
     
     try:
         with open(layout_file, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            config = json.load(f)
+            if not validate_layout_config(config):
+                st.error(f"Invalid layout configuration in {layout_file}")
+                return None
+            return config
     except json.JSONDecodeError as e:
         st.error(f"Invalid JSON in layout.json: {e}")
         return None
+
+
+def validate_layout_config(config: dict) -> bool:
+    """Validate minimum layout contract expected by the app."""
+    if not isinstance(config, dict):
+        return False
+
+    def valid_slot(slot: dict) -> bool:
+        required = {"x", "y", "w", "h"}
+        return isinstance(slot, dict) and required.issubset(slot) and all(isinstance(slot[k], int) for k in required)
+
+    def valid_format(fmt: dict) -> bool:
+        if not isinstance(fmt, dict):
+            return False
+        slots = fmt.get("slots")
+        if not isinstance(slots, list) or not slots or not all(valid_slot(slot) for slot in slots):
+            return False
+        text_pos = fmt.get("text_pos")
+        if text_pos is not None and not isinstance(text_pos, dict):
+            return False
+        return True
+
+    if "formats" in config:
+        formats = config.get("formats")
+        return isinstance(formats, dict) and bool(formats) and all(valid_format(fmt) for fmt in formats.values())
+
+    return valid_format(config)
 
 
 def get_available_formats(config: dict) -> list[str]:
@@ -79,7 +111,7 @@ def get_available_formats(config: dict) -> list[str]:
 def get_format_config(config: dict, format_name: str) -> dict:
     """Get configuration for a specific format."""
     if "formats" in config:
-        format_config = config["formats"].get(format_name, {})
+        format_config = deepcopy(config["formats"].get(format_name, {}))
         # Merge with global settings
         format_config["font_size"] = config.get("font_size", {})
         format_config["font_color"] = config.get("font_color", "#FFFFFF")
@@ -140,6 +172,10 @@ def load_font(template_path: Path, size: int) -> ImageFont.FreeTypeFont:
         "C:/Windows/Fonts/arialbd.ttf",
         "C:/Windows/Fonts/segoeui.ttf",
         "C:/Windows/Fonts/calibri.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/System/Library/Fonts/Supplemental/Helvetica.ttc",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
     ]
     
     for font_path in system_fonts:
@@ -266,12 +302,40 @@ def render_text(
     model_font = load_font(template_path, font_sizes.get("modelo", 42))
     price_font = load_font(template_path, font_sizes.get("preco", 28))
     default_font = load_font(template_path, font_sizes.get("default", 22))
-    
+
+    def fit_text_to_width(text: str, font: ImageFont.ImageFont, max_width: int) -> str:
+        if max_width <= 0:
+            return text
+        if draw.textlength(text, font=font) <= max_width:
+            return text
+
+        ellipsis = "..."
+        if draw.textlength(ellipsis, font=font) > max_width:
+            return ""
+
+        truncated = text
+        while truncated and draw.textlength(f"{truncated}{ellipsis}", font=font) > max_width:
+            truncated = truncated[:-1]
+        return f"{truncated}{ellipsis}" if truncated else ""
+
     def draw_text_field(key, text, font):
         if text and key in text_pos:
-            pos = tuple(text_pos[key])
+            x, y = text_pos[key]
             anchor = "ra" if key in text_align_right else "la"
-            draw.text(pos, text, font=font, fill=font_color, anchor=anchor)
+            max_width = 0
+            if anchor == "la":
+                # left text limited by left clear area when available
+                left_area = format_config.get("text_clear_area_left")
+                if left_area:
+                    max_width = left_area[2] - x
+            else:
+                # right text limited by right clear area when available
+                right_area = format_config.get("text_clear_area_right")
+                if right_area:
+                    max_width = x - right_area[0]
+
+            display_text = fit_text_to_width(text, font, max_width) if max_width else text
+            draw.text((x, y), display_text, font=font, fill=font_color, anchor=anchor)
     
     # Left side - Vehicle info
     draw_text_field("modelo", model, model_font)
