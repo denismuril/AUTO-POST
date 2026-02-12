@@ -318,12 +318,13 @@ def render_text(
     font_color = format_config.get("font_color", "#FFFFFF")
     text_align_right = format_config.get("text_align_right", [])
     
-    # Clear placeholder text areas (left and right)
-    for area_key in ["text_clear_area_left", "text_clear_area_right"]:
-        area = format_config.get(area_key, None)
-        if area:
-            x1, y1, x2, y2 = area
-            draw.rectangle([(x1, y1), (x2, y2)], fill="#1a1a1a")
+    # Clear placeholder text areas only when explicitly enabled in layout.
+    if format_config.get("clear_text_areas", True):
+        for area_key in ["text_clear_area_left", "text_clear_area_right"]:
+            area = format_config.get(area_key, None)
+            if area:
+                x1, y1, x2, y2 = area
+                draw.rectangle([(x1, y1), (x2, y2)], fill="#1a1a1a")
     
     # Load fonts
     model_font = load_font(template_path, font_sizes.get("modelo", 42))
