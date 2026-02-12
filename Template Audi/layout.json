@@ -10,21 +10,24 @@
                     "y": 28,
                     "w": 1024,
                     "h": 345,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 28,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
@@ -82,7 +85,8 @@
                 "telefone",
                 "unidade",
                 "endereco"
-            ]
+            ],
+            "clear_text_areas": false
         },
         "1080x1080": {
             "template_file": "1080x1080.png",
