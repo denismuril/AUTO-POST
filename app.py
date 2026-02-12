@@ -208,7 +208,12 @@ def create_rounded_mask(size: tuple[int, int], radius: int) -> Image.Image:
 
 def process_photo(photo: Image.Image, slot: dict) -> Image.Image:
     """
-    Process a user photo to fit a slot using center-crop.
+    Process a user photo to fit a slot.
+
+    Supported fit modes:
+    - cover: fills the slot with center-crop
+    - contain: keeps full image visible, centered in the slot
+    - auto (default): uses contain when crop would be too aggressive
     
     Args:
         photo: PIL Image of the user's photo
@@ -220,9 +225,31 @@ def process_photo(photo: Image.Image, slot: dict) -> Image.Image:
     width = slot["w"]
     height = slot["h"]
     radius = slot.get("radius", 0)
-    
-    # Use ImageOps.fit for center-crop resizing with LANCZOS filter
-    fitted = ImageOps.fit(photo, (width, height), method=Image.Resampling.LANCZOS)
+    fit_mode = slot.get("fit_mode", "auto").lower()
+
+    # Respect EXIF orientation from phone photos before any resize
+    normalized = ImageOps.exif_transpose(photo)
+
+    if fit_mode not in {"auto", "cover", "contain"}:
+        fit_mode = "auto"
+
+    photo_ratio = normalized.width / normalized.height if normalized.height else 1
+    slot_ratio = width / height if height else 1
+    ratio_diff = max(photo_ratio, slot_ratio) / min(photo_ratio, slot_ratio) if min(photo_ratio, slot_ratio) else 1
+
+    # Auto mode: avoid heavy crop on very different aspect ratios
+    use_contain = fit_mode == "contain" or (fit_mode == "auto" and ratio_diff > 1.2)
+
+    if use_contain:
+        fitted = ImageOps.contain(normalized, (width, height), method=Image.Resampling.LANCZOS)
+        canvas = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+        offset_x = (width - fitted.width) // 2
+        offset_y = (height - fitted.height) // 2
+        canvas.paste(fitted, (offset_x, offset_y))
+        fitted = canvas
+    else:
+        # Cover mode: fills entire slot
+        fitted = ImageOps.fit(normalized, (width, height), method=Image.Resampling.LANCZOS)
     
     # Convert to RGBA if needed
     if fitted.mode != "RGBA":
