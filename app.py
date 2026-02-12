@@ -357,6 +357,59 @@ def render_text(
     return result
 
 
+def format_price_value(raw: str) -> str:
+    """Format a raw string into Brazilian currency: R$ X.XXX,XX"""
+    digits = ''.join(c for c in raw if c.isdigit())
+    if not digits:
+        return ""
+    # Treat as cents (last 2 digits)
+    cents = int(digits)
+    if cents == 0:
+        return "R$ 0,00"
+    reais, centavos = divmod(cents, 100)
+    # Format with dot separators for thousands
+    reais_str = f"{reais:,}".replace(",", ".")
+    return f"R$ {reais_str},{centavos:02d}"
+
+
+def format_km_value(raw: str) -> str:
+    """Format a raw string with dot thousand separators for KM."""
+    digits = ''.join(c for c in raw if c.isdigit())
+    if not digits:
+        return ""
+    number = int(digits)
+    return f"{number:,}".replace(",", ".")
+
+
+def format_year_value(raw: str) -> str:
+    """Format a raw string as YYYY/YYYY for year field."""
+    digits = ''.join(c for c in raw if c.isdigit())
+    if not digits:
+        return ""
+    digits = digits[:8]  # Max 8 digits (2 years)
+    if len(digits) <= 4:
+        return digits
+    return f"{digits[:4]}/{digits[4:]}"
+
+
+def _on_price_change():
+    """Callback to format price field."""
+    st.session_state["price_display"] = format_price_value(st.session_state["price_input"])
+    st.session_state["price_input"] = st.session_state["price_display"]
+
+
+def _on_km_change():
+    """Callback to format KM field."""
+    st.session_state["km_display"] = format_km_value(st.session_state["km_input"])
+    st.session_state["km_input"] = st.session_state["km_display"]
+
+
+def _on_year_change():
+    """Callback to format year field."""
+    st.session_state["year_display"] = format_year_value(st.session_state["year_input"])
+    st.session_state["year_input"] = st.session_state["year_display"]
+
+
 def image_to_bytes(image: Image.Image, format: str = "PNG") -> bytes:
     """Convert PIL Image to bytes for download."""
     buffer = io.BytesIO()
@@ -439,9 +492,24 @@ def main():
         st.subheader("📝 Informações do Veículo")
         
         model = st.text_input("Modelo do veículo", placeholder="Ex: Audi RS6 Avant")
-        price = st.text_input("Preço", placeholder="Ex: R$ 850.000,00")
-        year = st.text_input("Ano", placeholder="Ex: 2023/2024")
-        km = st.text_input("Quilometragem", placeholder="Ex: 15.000")
+        price = st.text_input(
+            "Preço",
+            placeholder="Ex: R$ 850.000,00",
+            key="price_input",
+            on_change=_on_price_change
+        )
+        year = st.text_input(
+            "Ano",
+            placeholder="Ex: 2023/2024",
+            key="year_input",
+            on_change=_on_year_change
+        )
+        km = st.text_input(
+            "Quilometragem",
+            placeholder="Ex: 15.000",
+            key="km_input",
+            on_change=_on_km_change
+        )
         plate = st.text_input("Final da placa", placeholder="Ex: 5")
         
         st.divider()
