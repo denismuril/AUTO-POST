@@ -10,71 +10,74 @@
                     "y": 28,
                     "w": 1024,
                     "h": 345,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
                 0,
-                845,
-                480,
-                1010
+                1005,
+                500,
+                1245
             ],
             "text_clear_area_right": [
-                500,
-                845,
+                520,
+                1005,
                 1080,
-                1010
+                1245
             ],
             "text_pos": {
                 "modelo": [
                     42,
-                    855
+                    1035
                 ],
                 "preco": [
                     42,
-                    905
+                    1084
                 ],
                 "ano": [
                     42,
-                    940
+                    1128
                 ],
                 "km": [
                     42,
-                    975
+                    1172
                 ],
                 "placa": [
                     42,
-                    1010
+                    1216
                 ],
                 "vendedor": [
                     1038,
-                    870
+                    1042
                 ],
                 "telefone": [
                     1038,
-                    905
+                    1086
                 ],
                 "unidade": [
                     1038,
-                    940
+                    1130
                 ],
                 "endereco": [
                     1038,
-                    975
+                    1174
                 ]
             },
             "text_align_right": [
@@ -94,21 +97,24 @@
                     "y": 28,
                     "w": 1024,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 320,
                     "w": 506,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 320,
                     "w": 506,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
@@ -178,21 +184,24 @@
                     "y": 140,
                     "w": 1024,
                     "h": 500,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 660,
                     "w": 506,
                     "h": 400,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 660,
                     "w": 506,
                     "h": 400,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
@@ -262,21 +271,24 @@
                     "y": 28,
                     "w": 410,
                     "h": 200,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 240,
                     "w": 200,
                     "h": 180,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 240,
                     "y": 240,
                     "w": 200,
                     "h": 180,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
