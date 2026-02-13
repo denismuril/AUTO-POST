@@ -357,9 +357,10 @@ def render_text(
     def draw_text_field(key, text, font):
         if text and key in text_pos:
             x, y = text_pos[key]
-            anchor = "ra" if key in text_align_right else "la"
+            # Use top anchors so configured Y means top of line block (predictable spacing).
+            anchor = "rt" if key in text_align_right else "lt"
             max_width = 0
-            if anchor == "la":
+            if anchor == "lt":
                 # left text limited by left clear area when available
                 left_area = format_config.get("text_clear_area_left")
                 if left_area:
