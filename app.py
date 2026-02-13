@@ -312,6 +312,14 @@ def render_text(
     """
     result = image.copy()
     draw = ImageDraw.Draw(result)
+
+    # Optional modern text panels to improve readability/visual hierarchy.
+    for panel in format_config.get("text_panels", []):
+        x1, y1, x2, y2 = panel.get("rect", [0, 0, 0, 0])
+        radius = panel.get("radius", 28)
+        fill = panel.get("fill", [16, 18, 24, 150])
+        if len(fill) == 4:
+            draw.rounded_rectangle([(x1, y1), (x2, y2)], radius=radius, fill=tuple(fill))
     
     text_pos = format_config.get("text_pos", {})
     font_sizes = format_config.get("font_size", {})
@@ -363,6 +371,16 @@ def render_text(
                     max_width = x - right_area[0]
 
             display_text = fit_text_to_width(text, font, max_width) if max_width else text
+            # Soft shadow for better legibility on detailed backgrounds.
+            shadow_offset = format_config.get("text_shadow_offset", [2, 2])
+            shadow_color = tuple(format_config.get("text_shadow_color", [0, 0, 0, 140]))
+            draw.text(
+                (x + shadow_offset[0], y + shadow_offset[1]),
+                display_text,
+                font=font,
+                fill=shadow_color,
+                anchor=anchor,
+            )
             draw.text((x, y), display_text, font=font, fill=font_color, anchor=anchor)
     
     # Left side - Vehicle info

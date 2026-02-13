@@ -10,71 +10,74 @@
                     "y": 28,
                     "w": 1024,
                     "h": 345,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 390,
                     "w": 506,
                     "h": 335,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
-                0,
-                845,
-                480,
-                1010
+                20,
+                878,
+                520,
+                1080
             ],
             "text_clear_area_right": [
-                500,
-                845,
-                1080,
-                1010
+                560,
+                878,
+                1060,
+                1080
             ],
             "text_pos": {
                 "modelo": [
-                    42,
-                    855
+                    52,
+                    910
                 ],
                 "preco": [
-                    42,
-                    905
+                    52,
+                    958
                 ],
                 "ano": [
-                    42,
-                    940
+                    52,
+                    1000
                 ],
                 "km": [
-                    42,
-                    975
+                    52,
+                    1040
                 ],
                 "placa": [
-                    42,
-                    1010
+                    52,
+                    1080
                 ],
                 "vendedor": [
-                    1038,
-                    870
+                    1026,
+                    918
                 ],
                 "telefone": [
-                    1038,
-                    905
+                    1026,
+                    960
                 ],
                 "unidade": [
-                    1038,
-                    940
+                    1026,
+                    1002
                 ],
                 "endereco": [
-                    1038,
-                    975
+                    1026,
+                    1044
                 ]
             },
             "text_align_right": [
@@ -82,6 +85,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        24,
+                        872,
+                        526,
+                        1090
+                    ],
+                    "radius": 40,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        155
+                    ]
+                },
+                {
+                    "rect": [
+                        554,
+                        872,
+                        1056,
+                        1090
+                    ],
+                    "radius": 40,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        155
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                160
             ]
         },
         "1080x1080": {
@@ -94,34 +139,37 @@
                     "y": 28,
                     "w": 1024,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 320,
                     "w": 506,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 320,
                     "w": 506,
                     "h": 280,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
-                0,
-                620,
-                480,
-                780
+                20,
+                640,
+                520,
+                830
             ],
             "text_clear_area_right": [
-                500,
-                620,
-                1080,
-                780
+                560,
+                640,
+                1060,
+                830
             ],
             "text_pos": {
                 "modelo": [
@@ -166,6 +214,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        24,
+                        634,
+                        526,
+                        842
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        554,
+                        634,
+                        1056,
+                        842
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         },
         "1080x1920": {
@@ -178,34 +268,37 @@
                     "y": 140,
                     "w": 1024,
                     "h": 500,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 660,
                     "w": 506,
                     "h": 400,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 548,
                     "y": 660,
                     "w": 506,
                     "h": 400,
-                    "radius": 40
+                    "radius": 40,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
-                0,
-                1100,
-                480,
-                1280
+                20,
+                1130,
+                520,
+                1360
             ],
             "text_clear_area_right": [
-                500,
-                1100,
-                1080,
-                1280
+                560,
+                1130,
+                1060,
+                1360
             ],
             "text_pos": {
                 "modelo": [
@@ -250,6 +343,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        24,
+                        1124,
+                        526,
+                        1372
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        554,
+                        1124,
+                        1056,
+                        1372
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         },
         "1080x566": {
@@ -262,34 +397,37 @@
                     "y": 28,
                     "w": 410,
                     "h": 200,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "auto"
                 },
                 {
                     "x": 28,
                     "y": 240,
                     "w": 200,
                     "h": 180,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "cover"
                 },
                 {
                     "x": 240,
                     "y": 240,
                     "w": 200,
                     "h": 180,
-                    "radius": 30
+                    "radius": 30,
+                    "fit_mode": "cover"
                 }
             ],
             "text_clear_area_left": [
-                460,
-                30,
-                750,
-                280
+                450,
+                20,
+                760,
+                300
             ],
             "text_clear_area_right": [
-                750,
-                30,
-                1080,
-                280
+                760,
+                20,
+                1064,
+                300
             ],
             "text_pos": {
                 "modelo": [
@@ -334,6 +472,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        444,
+                        16,
+                        766,
+                        312
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        754,
+                        16,
+                        1066,
+                        312
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         }
     },
