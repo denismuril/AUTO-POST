@@ -86,7 +86,49 @@
                 "unidade",
                 "endereco"
             ],
-            "clear_text_areas": false
+            "clear_text_areas": false,
+            "text_panels": [
+                {
+                    "rect": [
+                        4,
+                        839,
+                        486,
+                        1022
+                    ],
+                    "radius": 40,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        160
+                    ]
+                },
+                {
+                    "rect": [
+                        494,
+                        839,
+                        1076,
+                        1022
+                    ],
+                    "radius": 40,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        160
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
+            ]
         },
         "1080x1080": {
             "template_file": "1080x1080.png",
@@ -173,6 +215,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        4,
+                        614,
+                        486,
+                        792
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        494,
+                        614,
+                        1076,
+                        792
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         },
         "1080x1920": {
@@ -260,6 +344,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        4,
+                        1094,
+                        486,
+                        1292
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        494,
+                        1094,
+                        1076,
+                        1292
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         },
         "1080x566": {
@@ -347,6 +473,48 @@
                 "telefone",
                 "unidade",
                 "endereco"
+            ],
+            "text_panels": [
+                {
+                    "rect": [
+                        464,
+                        24,
+                        756,
+                        292
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                },
+                {
+                    "rect": [
+                        744,
+                        24,
+                        1076,
+                        292
+                    ],
+                    "radius": 34,
+                    "fill": [
+                        10,
+                        12,
+                        18,
+                        145
+                    ]
+                }
+            ],
+            "text_shadow_offset": [
+                2,
+                2
+            ],
+            "text_shadow_color": [
+                0,
+                0,
+                0,
+                150
             ]
         }
     },
